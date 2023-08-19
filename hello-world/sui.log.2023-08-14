@@ -1,0 +1,6 @@
+2023-08-14T06:50:40.425863Z  INFO sui::client_commands: devnet => https://fullnode.devnet.sui.io:443 (active)
+2023-08-14T06:55:55.055469Z  INFO sui::client_commands: 0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c
+2023-08-14T06:59:10.969847Z  INFO sui::client_commands: 0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c
+2023-08-14T06:59:19.990583Z  INFO sui::client_commands:                              Object ID                              |  Gas Value 
+2023-08-14T06:59:19.990687Z  INFO sui::client_commands: ----------------------------------------------------------------------------------
+2023-08-14T06:59:19.990718Z  INFO sui::client_commands:  0xc0dcd91e704fc84099da649a9df6c581db73f43f8d88cf1161632ea2c1cb58ff | 10000000000

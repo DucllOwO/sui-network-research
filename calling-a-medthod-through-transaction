@@ -1,0 +1,62 @@
+sui client call --function mint --module hello_world --package 0xf99517ab3a3f45f8346b837d041bf009aa26737f2f863e5be4473e69ce50722f --gas-budget 100000000
+----- Transaction Digest ----
+HqQ4XuPKwFXfjTAydx4Jhbj9gVg5ERCjomeF1gEonZ1t
+----- Transaction Data ----
+Transaction Signature: [Signature(Ed25519SuiSignature(Ed25519SuiSignature([0, 229, 225, 82, 32, 106, 96, 160, 114, 115, 96, 241, 138, 47, 244, 17, 182, 171, 150, 122, 58, 16, 137, 116, 184, 87, 21, 131, 186, 20, 25, 208, 173, 39, 141, 106, 178, 163, 96, 10, 13, 13, 39, 252, 209, 185, 144, 84, 78, 0, 94, 230, 20, 198, 86, 33, 78, 73, 22, 192, 179, 7, 45, 18, 5, 112, 7, 70, 184, 107, 227, 38, 208, 102, 51, 217, 212, 9, 106, 57, 167, 15, 188, 134, 38, 253, 181, 199, 251, 20, 235, 97, 98, 219, 63, 128, 189])))]
+Transaction Kind : Programmable
+Inputs: []
+Commands: [
+  MoveCall(0xf99517ab3a3f45f8346b837d041bf009aa26737f2f863e5be4473e69ce50722f::hello_world::mint()),
+]
+
+Sender: 0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c
+Gas Payment: Object ID: 0xc0dcd91e704fc84099da649a9df6c581db73f43f8d88cf1161632ea2c1cb58ff, version: 0x5c, digest: 9DiTQrCdPmdtWHucMWJefUJ3sPu7go5nxuDgQ3y11WJe 
+Gas Owner: 0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c
+Gas Price: 1000
+Gas Budget: 100000000
+
+----- Transaction Effects ----
+Status : Success
+Created Objects:
+  - ID: 0x64547af643c3466077791a758e008328ad3a53b1d812f41b3e166b218b47fc0c , Owner: Account Address ( 0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c )
+Mutated Objects:
+  - ID: 0xc0dcd91e704fc84099da649a9df6c581db73f43f8d88cf1161632ea2c1cb58ff , Owner: Account Address ( 0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c )
+
+----- Events ----
+Array []
+----- Object changes ----
+Array [
+    Object {
+        "type": String("mutated"),
+        "sender": String("0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c"),
+        "owner": Object {
+            "AddressOwner": String("0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c"),
+        },
+        "objectType": String("0x2::coin::Coin<0x2::sui::SUI>"),
+        "objectId": String("0xc0dcd91e704fc84099da649a9df6c581db73f43f8d88cf1161632ea2c1cb58ff"),
+        "version": String("93"),
+        "previousVersion": String("92"),
+        "digest": String("3YyYdfaXYKhJoy27cncu1vxhsXCyeBGxFcSDbx1eozE7"),
+    },
+    Object {
+        "type": String("created"),
+        "sender": String("0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c"),
+        "owner": Object {
+            "AddressOwner": String("0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c"),
+        },
+        "objectType": String("0xf99517ab3a3f45f8346b837d041bf009aa26737f2f863e5be4473e69ce50722f::hello_world::HelloWorldObject"),
+        "objectId": String("0x64547af643c3466077791a758e008328ad3a53b1d812f41b3e166b218b47fc0c"),
+        "version": String("93"),
+        "digest": String("6ohKKmoFkrmiRvMcvYeTqm6fyUB1vpyU8uxJPYtfgoxe"),
+    },
+]
+----- Balance changes ----
+Array [
+    Object {
+        "owner": Object {
+            "AddressOwner": String("0x99e5a111f81298da5553845fcf3a762dd0c02b5fa1937c91703bffbd48ade87c"),
+        },
+        "coinType": String("0x2::sui::SUI"),
+        "amount": String("-2507080"),
+    },
+]

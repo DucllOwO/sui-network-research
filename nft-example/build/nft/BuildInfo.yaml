@@ -1,0 +1,24 @@
+---
+compiled_package_info:
+  package_name: nft
+  address_alias_instantiation:
+    nft: "0000000000000000000000000000000000000000000000000000000000000000"
+    std: "0000000000000000000000000000000000000000000000000000000000000001"
+    sui: "0000000000000000000000000000000000000000000000000000000000000002"
+  source_digest: 94068B866FD48DC1C603FB0A9E28DA0E9A3D6993A626726EF80D1A1935C0E827
+  build_flags:
+    dev_mode: false
+    test_mode: false
+    generate_docs: false
+    generate_abis: false
+    install_dir: ~
+    force_recompilation: false
+    lock_file: "./Move.lock"
+    additional_named_addresses: {}
+    fetch_deps_only: false
+    skip_fetch_latest_git_deps: false
+    default_flavor: sui
+    default_edition: ~
+dependencies:
+  - MoveStdlib
+  - Sui

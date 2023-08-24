@@ -185,9 +185,11 @@ module nfts::marketplace {
 
         assert!(ask <= coin::value(&paid), EBalanceNotEnough);
 
-        let payment = pay::split_and_transfer(&mut paid, ask, tx_context::sender(ctx), ctx);
+        let payment = coin::take(coin::balance_mut(&mut paid), ask, ctx);
 
         let nft = buy<T, COIN>(marketplace, payment, owner, id, ask);
+
+        transfer::public_transfer(paid, tx_context::sender(ctx));
 
         transfer::public_transfer(
             nft,

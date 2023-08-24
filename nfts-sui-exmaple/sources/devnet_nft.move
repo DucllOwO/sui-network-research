@@ -18,7 +18,7 @@ module nfts::devnet_nft {
     /// Created more than the maximum supply of Num NFT's
     const ETooManyNums: u64 = 0;
 
-    /// An example NFT that can be minted by anybody
+    /// An example NFT that can be minted only by the onwer
     struct DevNetNFT has key, store {
         id: UID,
         /// Name for the token

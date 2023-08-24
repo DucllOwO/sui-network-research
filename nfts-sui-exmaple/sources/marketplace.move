@@ -27,6 +27,7 @@ module nfts::marketplace {
     use sui::object::{Self, ID, UID};
     use sui::coin::{Self, Coin};
     use sui::transfer;
+    use sui::pay;
 
     /// For when amount paid does not match the expected.
     const EAmountIncorrect: u64 = 0;
@@ -184,11 +185,9 @@ module nfts::marketplace {
 
         assert!(ask <= coin::value(&paid), EBalanceNotEnough);
 
-        let payment = coin::take(coin::balance_mut(&mut paid), ask, ctx);
+        let payment = pay::split_and_transfer(&mut paid, ask, tx_context::sender(ctx), ctx);
 
         let nft = buy<T, COIN>(marketplace, payment, owner, id, ask);
-
-        transfer::public_transfer(paid, tx_context::sender(ctx));
 
         transfer::public_transfer(
             nft,
@@ -215,6 +214,35 @@ module nfts::marketplace {
         )
     }
 
+    //#[test]
+    // fun test_owner_of() {
+    //     use sui::test_scenario;
+    //     use sui::object;
+    //     use nfts::widget;
+    //     use sui::test_utils;
+    //     use sui::address;
+
+    //     let nft_owner = @0xCAFE;
+    //     let checker = @0x123F;
+
+    //     // first transaction to emulate module create marketplace
+    //     let scenario_val = test_scenario::begin(nft_owner);
+    //     let scenario = &mut scenario_val;
+    //     {
+    //         // create a nft and transfer it to the initial owner
+    //         widget::mint(test_scenario::ctx(scenario));
+    //     };
+    //     test_scenario::next_tx(scenario, checker);
+    //     {
+    //         let nft = test_scenario::take_from_address<widget::Widget>(scenario, nft_owner);
+    //         std::debug::print(&address::to_string(object::id_to_address(&object::id(&nft))));
+    //         test_scenario::return_to_address(nft_owner, nft);
+    //     };
+
+
+    //     test_scenario::end(scenario_val);
+    // }
+
     // #[test]
     // fun test_buy_transactions() {
     //     use sui::test_scenario;
@@ -232,8 +260,6 @@ module nfts::marketplace {
 
     //     // first transaction to emulate module create marketplace
     //     let scenario_val = test_scenario::begin(admin);
-
-        
 
     //     let scenario = &mut scenario_val;
     //     {

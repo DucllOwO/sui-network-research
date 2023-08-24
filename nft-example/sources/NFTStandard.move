@@ -13,7 +13,7 @@ module nft::NFTStandard {
     struct NFT<NFTType: store + drop> has key, store {
         /// A globally unique identifier, which includes the address of the NFT
         /// creator, as well as the globally unique ID.
-        id: GUID,
+        id: UID,
         /// A struct to enable type-specific fields that will be different for each Token.
         /// For example, `NFT<Painting>` with
         /// `struct Painting { name: vector<u84, painter: vector<u8>, year: u64, ... }`,
@@ -29,13 +29,13 @@ module nft::NFTStandard {
     }
 
     /// Return the globally unique identifier of `nft`
-    public fun id<NFTType: store + drop>(nft: &NFT<NFTType>): &GUID {
+    public fun id<NFTType: store + drop>(nft: &NFT<NFTType>): &UID {
         &nft.id
     }
 
     /// Return the creator of this NFT
     public fun creator<NFTType: store + drop>(nft: &NFT<NFTType>): address {
-        GUID::creator_address(id<NFTType>(nft))
+        UID::creator_address(id<NFTType>(nft))
     }
 
     /// View the underlying token of a NFT
